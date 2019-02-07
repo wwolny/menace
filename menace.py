@@ -1,5 +1,8 @@
 from box import Box
 
+# TODO:
+# 1. initialize the array of boxes
+# 2. fill the move()
 
 class Menace:
     # Array of boxes
@@ -15,8 +18,11 @@ class Menace:
     def initBoxes(self):
         print("I initialize boxes")
 
+    # returns the position where MENACE wants to move
     def move(self, board):
         print("I make a move")
+        position = 0
+        return position
 
     # result =>
     # loser = 0
