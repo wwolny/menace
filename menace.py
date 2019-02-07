@@ -4,6 +4,7 @@ from box import Box
 # 1. initialize the array of boxes
 # 2. fill the move()
 
+
 class Menace:
     # Array of boxes
     boxes = [Box(1, board=[0, 0, 0, 0, 0, 1, 2, 2, 1])]
@@ -15,7 +16,7 @@ class Menace:
         print("I'm the machine learning")
         self.initBoxes()
 
-    def initBoxes(self):
+    def init_boxes(self):
         print("I initialize boxes")
 
     # returns the position where MENACE wants to move

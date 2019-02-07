@@ -18,14 +18,14 @@ class Board:
     def __init__(self):
         print("Board")
 
-    def getvalue(self, x, y):
+    def get_value(self, x, y):
         x = int(x)
         y = int(y)
         if x > 3 or x < 1 or y < 1 or y > 3:
             raise ValueError("Wrong place in the board")
         return self.board[x+3*(y-1)-1]
 
-    def setvalue(self, x, y, value):
+    def set_value(self, x, y, value):
         x = int(x)
         y = int(y)
         if x > 3 or x < 1 or y < 1 or y > 3 or value not in [-1, 0, 1]:
@@ -36,7 +36,7 @@ class Board:
     # y - last move y
     # returns 1 if winner
     # returns 0 if no winner
-    def checkwinner(self, x, y):
+    def check_winner(self, x, y):
         x = int(x)
         y = int(y)
         if self.board[3*(y-1)] == self.board[3*(y-1)+1] == self.board[3*(y-1)+2]:
@@ -54,6 +54,6 @@ class Board:
                 return 0
         return 1
 
-    def printboard(self):
+    def print_board(self):
         for i in range(0, 3):
             print(self.board[3*i:3*i+3])
