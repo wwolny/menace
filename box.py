@@ -24,6 +24,7 @@ class Box:
             self.beads[0] = 3
             self.beads[1] = 3
             self.beads[4] = 3
+            self.colours = 3
         else:
             for i in range(0, 10):
                 if board[i]*(-1) > 0:
