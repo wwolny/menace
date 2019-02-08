@@ -11,23 +11,27 @@ class Menace:
     boxes = {'000000000': Box(0, board=[0, 0, 0, 0, 0, 0, 0, 0, 0])}
 
     # array of chosen boxes
-    chosen = ['000000000', '', '', '']
+    chosen = ['000000000', '000000000', '000000000', '000000000']
+
+    # last modified :
+    last = -1
 
     def __init__(self):
         print("I'm the machine learning")
 
     # returns the position where MENACE wants to move
+    # if retun = -1 then no more beads
     def move(self, board):
         str1 = ''
         for i in range(0, 9):
             str1 += str(board[i])
         if str not in self.boxes:
             new_board = Board()
-
-            self.boxes[str1] = Box(1, board)
-
-
-        position = 0
+            new_board.copy_board(board)
+            self.boxes[str1] = Box(1, new_board)
+        self.last += 1
+        self.chosen[self.last] = str1
+        position = self.boxes[str1].move()
         return position
 
     # return:
@@ -46,6 +50,7 @@ class Menace:
     def result(self, result):
         for i in range(0, 5):
             self.boxes[self.chosen[i]].result(result)
+
 
     # rotations = [(0, 1, 2, 3, 4, 5, 6, 7, 8),
     #              (2, 1, 0, 5, 4, 3, 8, 7, 6),
