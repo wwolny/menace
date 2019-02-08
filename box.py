@@ -26,10 +26,10 @@ class Box:
             self.beads[4] = 3
             self.colours = 3
         else:
-            for i in range(0, 10):
-                if board[i] == 1:
+            for i in range(0, 9):
+                if board.get_board()[i] == 1:
                     self.beads[i] = -1
-                elif board[i] == 2:
+                elif board.get_board()[i] == 2:
                     self.beads[i] = -2
                 else:
                     self.beads[i] = self.default
@@ -41,7 +41,7 @@ class Box:
     def move(self):
         tmp = randint(1, self.colours)
         for i in range(0, 9):
-            if self.beads[tmp] > 0:
+            if self.beads[i] > 0:
                 if tmp == 1:
                     self.beads[i] -= 1
                     self.chosen = i

@@ -51,7 +51,7 @@ class Board:
     # y - last move y
     # returns 1 if winner
     # returns 0 if no winner
-    def check_winner(self, x, y):
+    def check_winner_xy(self, x, y):
         x = int(x)
         y = int(y)
         if self.board[3*(y-1)] == self.board[3*(y-1)+1] == self.board[3*(y-1)+2]:
@@ -69,6 +69,28 @@ class Board:
                 return 0
         return 1
 
+    def check_winner_pos(self, pos):
+        pos = int(pos)
+        if pos < 3:
+            if self.board[0] == self.board[1] == self.board[2]:
+                return 0
+        elif pos < 6:
+            if self.board[4] == self.board[3] == self.board[5]:
+                return 0
+        else:
+            if self.board[6] == self.board[7] == self.board[8]:
+                return 0
+        if pos in [0, 3, 6]:
+            if self.board[0] == self.board[3] == self.board[6]:
+                return 0
+        elif pos in [1, 4, 7]:
+            if self.board[1] == self.board[4] == self.board[7]:
+                return 0
+        if pos in [2, 5, 8]:
+            if self.board[2] == self.board[5] == self.board[8]:
+                return 0
+        return 1
+
     def print_board(self):
         for i in range(0, 3):
             print(self.board[3*i:3*i+3])
@@ -77,6 +99,6 @@ class Board:
         return self.board
 
     def clean(self):
-        for i in range(0, 10):
+        for i in range(0, 9):
             self.board[i] = 0
 

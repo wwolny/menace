@@ -1,10 +1,6 @@
 from box import Box
 from board import Board
 
-# TODO:
-# 1. initialize the array of boxes
-# 2. fill the move()
-
 
 class Menace:
     # Array of boxes
@@ -13,7 +9,7 @@ class Menace:
     # array of chosen boxes
     chosen = ['000000000', '000000000', '000000000', '000000000']
 
-    # last modified :
+    # last modified:
     last = -1
 
     def __init__(self):
@@ -22,10 +18,15 @@ class Menace:
     # returns the position where MENACE wants to move
     # if retun = -1 then no more beads
     def move(self, board):
+        if self.last == 3:
+            for i in range(0, 9):
+                if board.get_board()[i] == 0:
+                    position = i
+                    return position
         str1 = ''
         for i in range(0, 9):
-            str1 += str(board[i])
-        if str not in self.boxes:
+            str1 += str(board.get_board()[i])
+        if str1 not in self.boxes:
             new_board = Board()
             new_board.copy_board(board)
             self.boxes[str1] = Box(1, new_board)
@@ -41,18 +42,18 @@ class Menace:
         str1 = ''
         for i in range(0, 9):
             str1 += str(board[i])
-        return str in self.boxes
+        print(str1)
+        return str1 in self.boxes
 
     # result =>
     # loser = 0
     # drawer = 1
     # winner = 2
     def result(self, result):
-        for i in range(0, 4):
+        for i in range(0, self.last+1):
             self.boxes[self.chosen[i]].result(result)
 
     def clean(self):
-        self.boxes = {'000000000': Box(0, board=[0, 0, 0, 0, 0, 0, 0, 0, 0])}
         self.chosen = ['000000000', '000000000', '000000000', '000000000']
         self.last = -1
 

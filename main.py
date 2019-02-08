@@ -3,7 +3,8 @@ from board import Board
 
 def main():
     game = Game()
-    game.play()
+    for i in range(1, 100):
+        game.play()
 
 
 main()
