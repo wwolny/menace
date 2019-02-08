@@ -48,9 +48,13 @@ class Menace:
     # drawer = 1
     # winner = 2
     def result(self, result):
-        for i in range(0, 5):
+        for i in range(0, 4):
             self.boxes[self.chosen[i]].result(result)
 
+    def clean(self):
+        self.boxes = {'000000000': Box(0, board=[0, 0, 0, 0, 0, 0, 0, 0, 0])}
+        self.chosen = ['000000000', '000000000', '000000000', '000000000']
+        self.last = -1
 
     # rotations = [(0, 1, 2, 3, 4, 5, 6, 7, 8),
     #              (2, 1, 0, 5, 4, 3, 8, 7, 6),
