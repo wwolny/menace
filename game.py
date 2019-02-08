@@ -2,7 +2,7 @@ from board import Board
 
 # TODO:
 # 1)check if value given by the user is valid
-# if it's not reask for the value
+# if it's not wrong
 
 
 class Game:
@@ -28,14 +28,14 @@ class Game:
         if self.p1 < self.p2:
             print("Player 1 move")
             self.p1 += 2
-            lastmovex = input("x = ")
-            lastmovey = input("y = ")
-            self.board.set_value(lastmovex, lastmovey, 1)
+            last_move_x = input("x = ")
+            last_move_y = input("y = ")
+            self.board.set_value(last_move_x, last_move_y, 1)
         else:
             print("Player 2 move")
             self.p2 += 2
-            lastmovex = input("x = ")
-            lastmovey = input("y = ")
-            self.board.set_value(lastmovex, lastmovey, 2)
+            last_move_x = input("x = ")
+            last_move_y = input("y = ")
+            self.board.set_value(last_move_x, last_move_y, 2)
         self.board.print_board()
-        return self.board.check_winner(lastmovex, lastmovey)
+        return self.board.check_winner(last_move_x, last_move_y)
