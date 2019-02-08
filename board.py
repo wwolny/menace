@@ -25,12 +25,18 @@ class Board:
             raise ValueError("Wrong place in the board")
         return self.board[x+3*(y-1)-1]
 
-    def set_value(self, x, y, value):
+    def set_value_xy(self, x, y, value):
         x = int(x)
         y = int(y)
         if x > 3 or x < 1 or y < 1 or y > 3 or value not in [-1, 0, 1]:
             raise ValueError("Wrong place in the board")
-        self.board[x+3*(y-1)-1] = value
+        self.board[x + 3 * (y - 1) - 1] = value
+
+    def set_value_pos(self, position, value):
+        position = int(position)
+        if position > 8 or position < 0 or value not in [-1, 0, 1]:
+            raise ValueError("Wrong place in the board")
+        self.board[position] = value
 
     # x - last move x
     # y - last move y
@@ -61,4 +67,4 @@ class Board:
     def clean(self):
         for i in range(0, 10):
             self.board[i] = 0
-            
+

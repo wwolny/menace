@@ -30,12 +30,12 @@ class Game:
             self.p1 += 2
             last_move_x = input("x = ")
             last_move_y = input("y = ")
-            self.board.set_value(last_move_x, last_move_y, 1)
+            self.board.set_value_xy(last_move_x, last_move_y, 1)
         else:
             print("Player 2 move")
             self.p2 += 2
             last_move_x = input("x = ")
             last_move_y = input("y = ")
-            self.board.set_value(last_move_x, last_move_y, 2)
+            self.board.set_value_xy(last_move_x, last_move_y, 2)
         self.board.print_board()
         return self.board.check_winner(last_move_x, last_move_y)
