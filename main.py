@@ -1,5 +1,6 @@
 from game import Game
 from board import Board
+from menace import Menace
 
 def main():
     game = Game()
@@ -8,3 +9,5 @@ def main():
 
 
 main()
+
+#menace = Menace()

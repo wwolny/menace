@@ -15,6 +15,7 @@
 class Board:
     board = [0]*9
 
+    free = 9
 
     def __init__(self):
         print("board")
@@ -40,12 +41,14 @@ class Board:
         if x > 3 or x < 1 or y < 1 or y > 3 or value not in [0, 1, 2]:
             raise ValueError("Wrong place in the board")
         self.board[x + 3 * (y - 1) - 1] = value
+        self.free -= 1
 
     def set_value_pos(self, position, value):
         position = int(position)
         if position > 8 or position < 0 or value not in [0, 1, 2]:
             raise ValueError("Wrong place in the board")
         self.board[position] = value
+        self.free -= 1
 
     # x - last move x
     # y - last move y
@@ -89,6 +92,8 @@ class Board:
         if pos in [2, 5, 8]:
             if self.board[2] == self.board[5] == self.board[8]:
                 return 0
+        if self.free == 0:
+            return -1
         return 1
 
     def print_board(self):
@@ -101,4 +106,5 @@ class Board:
     def clean(self):
         for i in range(0, 9):
             self.board[i] = 0
+        self.free = 9
 

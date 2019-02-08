@@ -4,7 +4,8 @@ from board import Board
 
 class Menace:
     # Array of boxes
-    boxes = {'000000000': Box(0, board=[0, 0, 0, 0, 0, 0, 0, 0, 0])}
+    boxes = {}
+    # '000000000': Box(0, board=[0, 0, 0, 0, 0, 0, 0, 0, 0])
 
     # array of chosen boxes
     chosen = ['000000000', '000000000', '000000000', '000000000']
