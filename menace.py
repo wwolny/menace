@@ -1,4 +1,5 @@
 from box import Box
+from board import Board
 
 # TODO:
 # 1. initialize the array of boxes
@@ -17,7 +18,15 @@ class Menace:
 
     # returns the position where MENACE wants to move
     def move(self, board):
-        print("I make a move")
+        str1 = ''
+        for i in range(0, 9):
+            str1 += str(board[i])
+        if str not in self.boxes:
+            new_board = Board()
+
+            self.boxes[str1] = Box(1, board)
+
+
         position = 0
         return position
 
@@ -27,9 +36,8 @@ class Menace:
     def check_box(self, board):
         str1 = ''
         for i in range(0, 9):
-            str1 += board[i]
+            str1 += str(board[i])
         return str in self.boxes
-
 
     # result =>
     # loser = 0

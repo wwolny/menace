@@ -17,9 +17,9 @@ class Box:
 
     # type = 0 for empty board
     # type != 0 for board with elements
-    def __init__(self, type, board):
+    def __init__(self, box_type, board):
         seed(1)
-        self.type = type
+        self.type = box_type
         if self.type == 0:
             self.beads[0] = 3
             self.beads[1] = 3
@@ -27,8 +27,10 @@ class Box:
             self.colours = 3
         else:
             for i in range(0, 10):
-                if board[i]*(-1) > 0:
-                    self.beads[i] = board[i]*(-1)
+                if board[i] == 1:
+                    self.beads[i] = -1
+                elif board[i] == 2:
+                    self.beads[i] = -2
                 else:
                     self.beads[i] = self.default
                     self.colours += 1

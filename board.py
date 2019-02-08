@@ -15,26 +15,35 @@
 class Board:
     board = [0]*9
 
-    def __init__(self):
-        print("Board")
 
-    def get_value(self, x, y):
+    def __init__(self):
+        print("board")
+
+    def copy_board(self, board):
+        self.board = board.get_board().copy()
+
+    def get_value_xy(self, x, y):
         x = int(x)
         y = int(y)
         if x > 3 or x < 1 or y < 1 or y > 3:
             raise ValueError("Wrong place in the board")
         return self.board[x+3*(y-1)-1]
 
+    def get_value_pos(self, pos):
+        if pos > 8 or pos < 0:
+            raise ValueError("Wrong place in the board")
+        return self.board[pos]
+
     def set_value_xy(self, x, y, value):
         x = int(x)
         y = int(y)
-        if x > 3 or x < 1 or y < 1 or y > 3 or value not in [-1, 0, 1]:
+        if x > 3 or x < 1 or y < 1 or y > 3 or value not in [0, 1, 2]:
             raise ValueError("Wrong place in the board")
         self.board[x + 3 * (y - 1) - 1] = value
 
     def set_value_pos(self, position, value):
         position = int(position)
-        if position > 8 or position < 0 or value not in [-1, 0, 1]:
+        if position > 8 or position < 0 or value not in [0, 1, 2]:
             raise ValueError("Wrong place in the board")
         self.board[position] = value
 
@@ -63,6 +72,9 @@ class Board:
     def print_board(self):
         for i in range(0, 3):
             print(self.board[3*i:3*i+3])
+
+    def get_board(self):
+        return self.board
 
     def clean(self):
         for i in range(0, 10):
