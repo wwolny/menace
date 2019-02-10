@@ -7,7 +7,7 @@ class Box:
     # -1 player 1 X
     # -2 player 2 O
     # 0 no beads in position
-    beads = [0]*9
+    # beads = [0]*9
 
     # default number of beads for each option
     default = 1
@@ -21,9 +21,13 @@ class Box:
     # type = 0 for empty board
     # type != 0 for board with elements
     def __init__(self, box_type, board):
+        self.beads = [0, 0, 0, 0, 0, 0, 0, 0, 0].copy()
         seed(1000)
         if box_type == 0:
-            self.beads = [3, 3, 0, 0, 3, 0, 0, 0, 0]
+            # self.beads = [3, 3, 0, 0, 3, 0, 0, 0, 0]
+            self.beads[0] = 3
+            self.beads[1] = 3
+            self.beads[4] = 3
             self.colours = 3
         else:
             for i in range(0, 9):
@@ -39,6 +43,7 @@ class Box:
     # decreases the number of beads of the position
     # set the chosen value
     def move(self):
+        # print(self.beads)
         tmp = randint(1, self.colours)
         for i in range(0, 9):
             if self.beads[i] > 0:
@@ -60,4 +65,16 @@ class Box:
         elif result == 2:
             self.beads[self.chosen] += 3
 
+    # append
+    def write_file(self, filename):
+        f = open(filename)
+        f.write(str(self.beads) + " " + str(self.colours))
+        f.close()
 
+    def read_line(self, line):
+        line += " "
+        line.cut(" ")
+
+        # f = open(filename)
+        # line = f.readline()
+        # f.close()

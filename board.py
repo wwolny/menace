@@ -17,8 +17,8 @@ class Board:
 
     free = 9
 
-    def __init__(self):
-        print("board")
+    # def __init__(self):
+    #     print("board")
 
     def copy_board(self, board):
         self.board = board.get_board().copy()

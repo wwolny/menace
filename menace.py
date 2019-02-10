@@ -4,7 +4,7 @@ from board import Board
 
 class Menace:
     # Array of boxes
-    boxes = {}
+    boxes = {'000000000': Box(0, board=[0, 0, 0, 0, 0, 0, 0, 0, 0])}
     # '000000000': Box(0, board=[0, 0, 0, 0, 0, 0, 0, 0, 0])
 
     # array of chosen boxes
@@ -17,7 +17,7 @@ class Menace:
         print("I'm the machine learning")
 
     # returns the position where MENACE wants to move
-    # if retun = -1 then no more beads
+    # if return = -1 then no more beads
     def move(self, board):
         if self.last == 3:
             for i in range(0, 9):
