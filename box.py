@@ -7,7 +7,6 @@ class Box:
     # -1 player 1 X
     # -2 player 2 O
     # 0 no beads in position
-    # beads = [0]*9
 
     # default number of beads for each option
     default = 1
@@ -50,6 +49,8 @@ class Box:
                 if tmp == 1:
                     self.beads[i] -= 1
                     self.chosen = i
+                    if self.beads[i] == 0:
+                        self.colours -= 1
                     return i
                 else:
                     tmp -= 1
@@ -62,8 +63,12 @@ class Box:
     def result(self, result):
         if result == 1:
             self.beads[self.chosen] += 1
+            if self.beads[self.chosen] == 1:
+                self.colours += 1
         elif result == 2:
             self.beads[self.chosen] += 3
+            if self.beads[self.chosen] == 3:
+                self.colours += 1
 
     # append
     def write_file(self, filename):

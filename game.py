@@ -54,7 +54,7 @@ class Game:
             self.p1 -= 2
             pos = self.menace.move(self.board)
             if pos == -1:
-                # self.board.print_board()
+                #self.board.print_board()
                 return -1
             self.board.set_value_pos(pos, 1)
         else:
@@ -63,7 +63,7 @@ class Game:
             pos = self.player_random.move(self.p2, self.board.get_board())
             self.p2 -= 2
             self.board.set_value_pos(pos, 2)
-        # self.board.print_board()
+        #self.board.print_board()
         return self.board.check_winner_pos(pos)
 
     def prepare_game(self):

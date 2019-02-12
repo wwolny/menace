@@ -99,6 +99,7 @@ class Board:
     def print_board(self):
         for i in range(0, 3):
             print(self.board[3*i:3*i+3])
+        print("\n")
 
     def get_board(self):
         return self.board
