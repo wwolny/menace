@@ -1,6 +1,11 @@
 from random import seed
 from random import randint
 
+# TODO:
+# 1) write box to file
+# 2) read box from file
+# functions to use already "intelligent" boxes
+
 
 class Box:
     # beads array:
@@ -72,14 +77,15 @@ class Box:
 
     # append
     def write_file(self, filename):
-        f = open(filename)
-        f.write(str(self.beads) + " " + str(self.colours))
-        f.close()
+        print("TODO: write box line")
+        # f = open(filename)
+        # f.write(str(self.beads) + " " + str(self.colours))
+        # f.close()
 
     def read_line(self, line):
-        line += " "
-        line.cut(" ")
-
+        print("TODO: readline")
+        # line += " "
+        # line.cut(" ")
         # f = open(filename)
         # line = f.readline()
         # f.close()

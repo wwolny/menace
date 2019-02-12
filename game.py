@@ -1,7 +1,7 @@
 from board import Board
 from menace import Menace
 from random import randint
-from player_random import Player_Random
+from player_random import PlayerRandom
 
 # TODO:
 # 1)check if value given by the user is valid
@@ -13,10 +13,7 @@ class Game:
     p2 = 8
     board = Board()
     menace = Menace()
-    player_random = Player_Random()
-
-    # def __init__(self):
-    #     print("game")
+    player_random = PlayerRandom()
 
     def play(self):
         self.prepare_game()
@@ -54,7 +51,7 @@ class Game:
             self.p1 -= 2
             pos = self.menace.move(self.board)
             if pos == -1:
-                #self.board.print_board()
+                # self.board.print_board()
                 return -1
             self.board.set_value_pos(pos, 1)
         else:
@@ -63,7 +60,7 @@ class Game:
             pos = self.player_random.move(self.p2, self.board.get_board())
             self.p2 -= 2
             self.board.set_value_pos(pos, 2)
-        #self.board.print_board()
+        # self.board.print_board()
         return self.board.check_winner_pos(pos)
 
     def prepare_game(self):

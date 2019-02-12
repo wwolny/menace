@@ -1,6 +1,9 @@
 from box import Box
 from board import Board
 
+# TODO:
+# rotations
+
 
 class Menace:
     # Array of boxes
@@ -58,6 +61,8 @@ class Menace:
         self.chosen = ['000000000', '000000000', '000000000', '000000000']
         self.last = -1
 
+    # TODO:
+    # decrease the number of boxes by checking the rotations
     # rotations = [(0, 1, 2, 3, 4, 5, 6, 7, 8),
     #              (2, 1, 0, 5, 4, 3, 8, 7, 6),
     #              (6, 7, 8, 3, 4, 5, 0, 1, 2),

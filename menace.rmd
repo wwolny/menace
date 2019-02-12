@@ -1,0 +1,25 @@
+---
+title: "Menace"
+author: "Wojciech Wolny"
+date: "12 luty 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+```
+
+# Opracowanie danych
+
+```{r}
+data = read.csv("results.csv", header = TRUE, sep = " ")
+
+print(data$random)
+
+hist(data$random)
+
+ggplot(data, aes(data$random)) + geom_histogram() + stat_bin(binwidth = 1, bins = 1)
+````
+

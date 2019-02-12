@@ -1,7 +1,8 @@
 from random import randint
 from random import seed
 
-class Player_Random:
+
+class PlayerRandom:
     def __init__(self):
         print("I'm radnomizer")
         seed(1000)
