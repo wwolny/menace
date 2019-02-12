@@ -7,8 +7,8 @@ FILENAME = "results.csv"
 def main():
     results = []
     game = Game()
-    results.append(["menace", "random", "draw"])
-    for j in range(1, 100):
+    results.append(["nr", "menace", "random", "draw"])
+    for j in range(1, 101):
         menace = 0
         random = 0
         draw = 0
@@ -20,10 +20,10 @@ def main():
                 menace += 1
             else:
                 random += 1
-        results.append([menace, random, draw])
+        results.append([j, menace, random, draw])
     f = open(FILENAME, "wt")
     for i in range(0, int(len(results))):
-        f.write(str(results[i][0]) + ' ' + str(results[i][1]) + ' ' + str(results[i][2]) + '\n')
+        f.write(str(results[i][0]) + ' ' + str(results[i][1]) + ' ' + str(results[i][2]) + ' ' + str(results[i][3]) + '\n')
     f.close()
     print(results)
 

@@ -12,14 +12,16 @@ library(ggplot2)
 ```
 
 # Opracowanie danych
+MENACE był poddany serii 100 pętli po 50 gier każda, w której grał przeciwko automatycznemu przeciwnikowi.
+Ja wykorzystałem przeciwnika, który losowa wybiera miejsce, ale jeśli może wygrać w jednym ruchu to wygrywa.
 
 ```{r}
 data = read.csv("results.csv", header = TRUE, sep = " ")
 
-print(data$random)
-
-hist(data$random)
-
-ggplot(data, aes(data$random)) + geom_histogram() + stat_bin(binwidth = 1, bins = 1)
+ggplot(data, aes(x = data$nr, y = data$random))+geom_point()
 ````
+
+# Wnioski
+Widać, że im później tym lepsze wyniki osiąga MENACE. Porażki w późniejszych etapach gry mogą wynikać z zbyt słabego przeciwnika.
+Jednakże, przy perfekcyjnym przeciwniku mogłyby się skończyć szybko kuleczki w pierwszym pudełku.
 
